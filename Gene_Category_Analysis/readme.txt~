@@ -1,0 +1,73 @@
+1) chr21GeneNames.pl
+
+command to run the program from command line
+
+perl chr21GeneNames.pl -file "file name"
+
+as an example with the provided files.
+
+perl chr21GeneNames.pl -file chr21_genes.txt
+
+Documentation :-
+On command line, It will ask the user to provide the gene symbol. it will retrieve the gene symbol, description of that gene from the given file. it will not stop to ask user for gene symbol until user enter quit word. it splits the file data by tab, and put it into a hash key and value pair. with the help of subroutine, it will keep prompting user until get quit from user. with every existing gene symbol (in file), it will find the description and display.
+
+It takes 1 argument from command line 
+-file chr21_genes.txt (having the gene symbol, description and category)
+
+2) categories.pl 
+
+command to run the program from command line
+
+perl categories.pl -file1 "file1 name" -file2 "file2 name"
+
+as an example with the provided files.
+
+perl categories.pl -file1 chr21_genes.txt -file2 chr21_genes_categories.txt
+
+Documentation :-
+It counts the occurance of each category in file1 and print it into a file named "categories.txt" with the category, occurance & defination ( takes defination from the file2 ). form file1 it split data and take the gene symbol as a key and category as a value and store in a hash. from file2, it take the categoty as a key and description as a value and store into another hash. find occurance of each category for every gene symbol and print the category, occurance & defination into output file in ascending order.
+
+It takes two arguments from command line
+-file1 chr21_genes.txt (having the gene symbol, description and category)  
+-file2 chr21_genes_categories.txt (having the category & description)
+
+in categories.txt you will find 
+Category, Occurance and Description of each category in ascending order (of occurance).
+
+3) intersection.pl 
+
+command to run the program from command line
+
+perl intersection.pl -file1 "file1 name" -file2 "file2 name"
+
+as an example with the provided files.
+
+perl intersection.pl -file1 chr21_genes.txt -file2 HUGO_genes.txt
+
+Documentation :-
+It takes the common occuring gene symbol from both file1 and file2 and print it out into "intersectionOutput.txt" in alphabetical order. a subroutine will split the file first by enter and then by tab and store the gene symbol into an array. that subroutine call on both file1 and file2. then it will take the common gene symbol from both respective arrays with the help of hash. sort them in alphabetical order and print it out into output file.  
+
+It takes two arguments from command line
+-file1 chr21_genes.txt (having the gene symbol, description and category)  
+-file2 HUGO_genes.txt (having the gene symbol & description)
+
+in intersectionOutput.txt you will find 
+a list of common gene symbol from file1 and file2 in alphabetical order.
+
+4) pdbFastaSplitter.pl
+
+It takes 1 argument from command line 
+-infile ss.txt (having the sequence data and secondary structure data)
+
+this program will generate 2 files
+a) pdbProtein.fasta (having all protein sequence with header)
+b) pdbSS.fasta (having all secondary structure sequence with header)
+
+5) nucleotideStatisticsFromFasta.pl 
+
+It takes two arguments from command line
+-infile influenza.fasta (having fasta sequences)  
+-outfile influenza.stats.txt (will have the statistics data on FASTA sequences)
+
+in influenza.stats.txt you will find 
+numbering, accession ID, each nucleotide occurance (A,T,G,C, & N(other than A,T,G,C)), Total sequence length, %GC content. 
